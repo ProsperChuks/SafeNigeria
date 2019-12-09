@@ -11,13 +11,11 @@
 
 # Problem
 
-As it is, Most Nigerian Citizens are not well informed about a lot of incidents and crimes
-that have taken place in the country
+Emergency never comes with prior notification. In Nigeria detecting emergencies and reporting them is a real challenge
 
 # Proposed Solution
 
-To create awareness with the help of other citizens, inform people about ongoing incidents or crimes
-in the country to keep them safe
+This software is one, that allows people to record emergencies that happen around them and post them online, for people to stay safe off there or take measures. It would curb the gap in reporting emergencies and also curb fake news online, since people now can tell their news, and comments on each posts would affirm the veracity of the news
 
 # Proposed Stack
 
