@@ -11,7 +11,7 @@
 
 # Problem
 
-Emergency never comes with prior notification. In Nigeria detecting emergencies and reporting them is a real challenge
+Emergency never comes with prior notification. In Nigeria detecting emergencies and reporting them is a real challenge. With a lot of fake news on the internet, Accidents and Crimes that happen in Nigeria Neighborhoods are mostly faced with problem of quick response due to lag in reporting time
 
 # Proposed Solution
 
