@@ -1,7 +1,7 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,7 +39,7 @@ ROOT_URLCONF = 'safenigeria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,18 +115,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# Setup directory were *collectstatic* command will save static files
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_resource/')
-
-# Setup directory were django will search for static files within app
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'),]
-
-
-
-# Media files (User's uploaded file content)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/#serving-files-uploaded-by-a-user-during-development
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded_resource/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root/')
+
+# Setup directory were *collectstatic* command will save static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
+
+# Setup directory were django will search for static files within app
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), 'static']
 

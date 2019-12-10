@@ -13,6 +13,9 @@ urlpatterns = [
     path('accounts/login', auth_view.LoginView.as_view(), name='login'),
     path('accounts/logout', auth_view.LogoutView.as_view(), name='logout'),
     path('accounts/registration', UserCreationView.as_view(), name='register'),
+
+    # project's library/app url hooks
+    path('', include('core.urls')),
 ]
 
 
