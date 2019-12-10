@@ -19,7 +19,7 @@ This software is one, that allows people to record emergencies that happen aroun
 
 # Proposed Stack
 
-Javascript, Django and MySQL
+Javascript, Django, PostgreSQL and AWS
 
 # Benefit
 
