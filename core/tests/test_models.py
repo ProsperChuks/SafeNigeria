@@ -49,6 +49,18 @@ class CustomUserTest(TestCase):
         # check for john
         self.assertFalse(self.john_user.check_password("johndoepassword"))
 
+
+    def test_no_two_email_can_exist(self):
+        """
+        when an email already exists, that email cannot be used to create
+        another user
+        """
+        with self.assertRaises(IntegrityError):
+            get_user_model().objects.create(
+                username = 'johngeek',
+                email = 'johndoe@gmail.com',
+            )
+
     
     def test_no_two_or_more_user_account_can_be_the_same(self):
         """
