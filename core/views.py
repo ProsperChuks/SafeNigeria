@@ -12,4 +12,13 @@ class ReportPageView(FormView):
     form_class = forms.ReportForm
     context_object_name = 'form'
     success_url = '/'
+
+    def form_valid(self, form):
+        """
+        when form is valid, then save the form
+        """
+        incident = form.save(commit=False)
+        incident.user = self.request.user
+        incident.save()
+        return super().form_valid(form)
     
