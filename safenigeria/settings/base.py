@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'core',
 
     # third party library/app
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
