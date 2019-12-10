@@ -6,7 +6,7 @@
 
 - AbdulAzeez Olawale Shobajo, digitalpoolng@gmail.com, Business
 - Agbonze O. Jeremiah, agbonzeosazuwa@gmail.com, Backend
-- Chukwudi Prosper, prosperc40@gmail.com, Fullstack
+- Chukwudi Prosper, prosperc40@gmail.com, Frontend
 - Ipoola Peter, peteripoola@yahoo.com, UI/UX Design
 
 # Problem
