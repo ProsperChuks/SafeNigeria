@@ -2,6 +2,8 @@ from django import forms
 from django.contrib import admin
 from django.contrib.auth.models import Permission, Group
 
+from core.models import Incident
+
 
 class UserAdminFormCustomizer(forms.ModelForm):
     """
@@ -28,3 +30,10 @@ class UserAdminFormCustomizer(forms.ModelForm):
     #         False
     #     )
     # )
+
+
+class ReportForm(forms.ModelForm):
+    class Meta:
+        model = Incident
+        fields = ('video', 'city', 'headline', 'description',)
+        
