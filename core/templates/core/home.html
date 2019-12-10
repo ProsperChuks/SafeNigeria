@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+{% block hero %}
+    <div>
+        <div class="header-blue" style="background-repeat:no-repeat;background-size:cover;background-position:100%;">
+            <h1 class="text-center text-white mb-3" style="font-family:Lato, sans-serif;font-weight:bold;font-size:30px;padding-top:189px;">
+                know about the incidents around you and be safe</h1>
+            <form method="get" class="input-group mb-3 form-group">
+                <input type="search" placeholder="Enter your city to search" autofocus autocomplete="off" class="align-self-center" style="width:351px; height:55px; font-size: 21px; border: none;"/>
+                <div class="input-group-append">
+                <button style="background: #ffffff; border: none;" class="input-group-text fa fa-search fa-2x"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock hero %}
+
+
+{% block content %}
+    <div class="highlight-blue" style="background-color:rgb(9,13,20);">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="width:606px;height:100px;margin-left:-59px;">
+                    <br><strong>KEEPING PEOPLE SAFE AND INFORMED</strong><br></h2>
+                <p><br>It would curb the gap in reporting emergencies and fake news online, since people now can tell their news, and comments on each posts would affirm the veracity of the news<br><br></p>
+            </div>
+        </div>
+    </div>
+    <div style="background-color:#090d14;padding:40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><i class="fa fa-angle-double-down d-block" style="color:rgb(62,140,228);font-size:76px;padding:0px;padding-left:134px;"></i>
+                    <p>&nbsp;</p><i class="fa fa-info d-block" style="font-size:76px;color:rgb(62,140,228);padding-left:144px;padding-top:17px;"></i>
+                    <p>&nbsp;</p><i class="fa fa-volume-control-phone d-block" style="color:rgb(62,140,228);font-size:76px;padding:0px;padding-left:135px;padding-top:74px;"></i></div>
+                <div class="col-md-4" style="color:rgb(255,255,255);padding:0px;">
+                    <div class="intro">
+                        <h2 class="text-center d-block" style="padding:18px;">Democratizing NPF</h2>
+                        <h2 class="text-center d-block" style="padding:0px;"><br>Keeping citizens safe and informed<br><br></h2>
+                        <h2 class="text-center d-block"><br>Curbing the gap in reporting emergencies online<br><br></h2>
+                    </div>
+                </div>
+                <div class="col-md-4"><i class="fa fa-angle-double-down d-block" style="color:rgb(62,140,228);font-size:76px;padding:0px;padding-left:146px;"></i>
+                    <p>&nbsp;</p><i class="fa fa-info d-block" style="font-size:76px;color:rgb(62,140,228);padding-left:158px;padding-top:17px;"></i>
+                    <p>&nbsp;</p><i class="fa fa-volume-control-phone d-block" style="color:rgb(62,140,228);font-size:76px;padding:0px;padding-left:151px;padding-top:74px;"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="highlight-clean" style="background-color:rgb(9,13,20);">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="color:rgb(255,255,255);">Become a Good Citizen</h2>
+                <p class="text-center" style="color:rgb(172,200,232);">Sign Up and share a post about an incident to create awareness. Be a Good Citizen</p>
+            </div>
+            <div class="buttons"><a class="btn btn-primary" role="button" href="signup.html">sign up</a><a class="btn btn-light" role="button" href="login.html">log in</a></div>
+        </div>
+    </div>
+    <div class="testimonials-clean" style="background-color:rgb(49,52,55);">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="color:rgb(255,255,255);">Recent Incidents</h2>
+            </div>
+            <div class="row people">
+                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Wy8kokUarow" style="height:221px;width:361px;"></iframe></div>
+                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/EjXGkDH6_Jo" style="height:221px;width:361px;"></iframe></div>
+                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/zTwmEy48wlo" style="height:221px;width:361px;"></iframe></div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
