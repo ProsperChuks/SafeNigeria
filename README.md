@@ -24,7 +24,7 @@ Javascript, Django and MySQL
 # Benefit
 
 - Keeping citizens safe and informed
-- A new way to bring people together
+- Curb the gap in reporting emergencies online
 - Democratizing NPF
 
 # Top-level directory layout
