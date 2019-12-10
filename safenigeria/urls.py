@@ -12,7 +12,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/login', auth_view.LoginView.as_view(), name='login'),
     path('accounts/logout', auth_view.LogoutView.as_view(), name='logout'),
-    path('accounts/registration', UserCreationView.as_view(), name='register'),
+    path(
+            'accounts/registration', 
+            UserCreationView.as_view(
+                    template_name='registration/register.html'), 
+            name='register'
+        ),
 
     # project's library/app url hooks
     path('', include('core.urls')),
