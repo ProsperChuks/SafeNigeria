@@ -72,10 +72,19 @@ class CustomUser(AbstractUser):
 	REQUIRED_FIELDS = ['email',]
 
 	def __str__( self ):
-		return self.email
+		return self.get_full_name()
 	
 	def get_full_name(self):
-		return f"{self.first_name.title()} {self.last_name.title()}"
+		return f"{self.first_name} {self.last_name}".title()
+
+	def is_staff(self):
+		return self.staff
+	
+	def is_admin(self):
+		return self.admin
+
+	def is_superuser(self):
+		return self.admin
 
 
 
@@ -118,8 +127,6 @@ CITIES = (
 	('yobe', 		'Yobe'),
 	('zamfara', 	'Zamfara')
 )
-
-
 
 
 
