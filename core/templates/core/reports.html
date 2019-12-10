@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Report {% endblock title %}
+{% block content %}
+    <div style="background-color:rgb(9,13,20);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <form method="post" enctype="multipart/form-data">
+                        <h2 class="text-center text-light">Report Incident</h2>
+                        <div class="form-group">
+                            <textarea class="form-control" required="" autofocus="" placeholder="Title"></textarea>
+                        </div>
+                        <div class="form-group"><textarea class="form-control" required="" placeholder="What is going on" style="height:293px;"></textarea></div>
+                        <div class="form-group">
+                            <p>Upload Video of Incident</p>
+                            <p>&nbsp;</p><input type="file" accept="video/*" required=""></div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit" style="background-color:#007bff;">Report</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 container">
+                    <h2 class="text-center" style="color:rgb(255,255,255);">Recent Incidents</h2><br><iframe width="460" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Bzi4MTFEJjk?autoplay=1" style="width:400px;height:280px;margin-left:77px;"></iframe>
+                    <iframe
+                        width="460" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/6h0CFZC7quQ" style="width:400px;height:280px;margin-left:77px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

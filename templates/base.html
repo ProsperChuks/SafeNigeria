@@ -41,14 +41,10 @@
             <div
                 class="collapse navbar-collapse" id="navcol-1" style="width:0px;">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation" style="margin-left:0px;">
-                        <a class="nav-link active" href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Home</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" href="reports.html" style="color:rgb(255,255,255);">Report</a>
-                    </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="news.html" style="color:rgb(255,255,255);">News</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="cities.html" style="color:rgb(255,255,255);">Cities</a></li>
+                    <a class="nav-link " href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Home</a>
+                    <a class="nav-link" href="{% url 'core:report' %}" style="color:rgb(255,255,255);">Report</a>
+                    <a class="nav-link" href="news.html" style="color:rgb(255,255,255);">News</a>
+                    <a class="nav-link" href="cities.html" style="color:rgb(255,255,255);">Cities</a>
                 </ul>
             </div>
         </div>
@@ -64,7 +60,7 @@
                         <div class="col-sm-6 col-md-3 item">
                             <h3>Pages</h3>
                             <ul>
-                                <li><a href="reports.html">Report a Crime</a></li>
+                                <li><a href="{% url 'core:report' %}">Report a Crime</a></li>
                                 <li><a href="news.html">News</a></li>
                                 <li><a href="#">Cities</a></li>
                             </ul>
