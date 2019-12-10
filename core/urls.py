@@ -6,4 +6,5 @@ app_name = 'core'
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
     path('report/', views.ReportPageView.as_view(), name='report'),
+    path('news/', views.NewFeedView.as_view(), name='news'),
 ]

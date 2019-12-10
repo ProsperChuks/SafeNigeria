@@ -147,9 +147,10 @@ class Incident(models.Model):
 		on_delete=models.CASCADE, 
 		related_name='incidents'
 	)
-	city = models.ManyToManyField(
+	city = models.ForeignKey(
 		State,
-		related_name='incidents'
+		related_name='incidents',
+		on_delete=models.CASCADE
 	)
 
 	class Meta:

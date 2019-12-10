@@ -64,9 +64,20 @@
                 <h2 class="text-center" style="color:rgb(255,255,255);">Recent Incidents</h2>
             </div>
             <div class="row people">
-                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Wy8kokUarow" style="height:221px;width:361px;"></iframe></div>
-                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/EjXGkDH6_Jo" style="height:221px;width:361px;"></iframe></div>
-                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/zTwmEy48wlo" style="height:221px;width:361px;"></iframe></div>
+                {% if recent_incidents %}
+                    {% for incident in recent_incidents %}
+                        <div class="col-md-6 col-lg-4 item text-center">
+                            <div>
+                                <video controls width="250">
+                                    <source src="{{ incident.video.url }}">
+                                    Sorry, your browser doesn't support embedded videos.
+                                </video>
+                            </div>
+                            <h5 class="text-white">{{ incident.headline }}</h5>
+                            <p class="text-bold">Occured at : {{ incident.city.name }} &emsp; -- &emsp; {{ incident.date_uploaded|date:'d M Y' }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
