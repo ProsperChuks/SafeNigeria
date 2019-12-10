@@ -1,7 +1,7 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -17,6 +17,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # project base library/app
+    'core',
+
+    # third party library/app
 ]
 
 MIDDLEWARE = [
@@ -34,7 +39,7 @@ ROOT_URLCONF = 'safenigeria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,9 +64,11 @@ DATABASES = {
         'NAME': os.environ.get('SAFE_NIGERIA_DB_NAME', ''),
         'USER': os.environ.get('SAFE_NIGERIA_DB_USER', ''),
         'PASSWORD': os.environ.get('SAFE_NIGERIA_DB_PASS', ''),
+    },
+    'test': {
+        'NAME': 'test_SN_db',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -82,6 +89,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Custom User Model
+AUTH_USER_MODEL = 'core.CustomUser'
+
+# Authentication redirect URI
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'accounts/login'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -100,3 +115,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root/')
+
+# Setup directory were *collectstatic* command will save static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
+
+# Setup directory were django will search for static files within app
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), 'static']
+
