@@ -22,6 +22,25 @@ class CustomUserTest(TestCase):
         )
         self.jane_user.set_password("janedoepass")
 
+    
+    def test_get_full_name_returns_right_value(self):
+        """
+        get_full_name is a helper method that returns the 
+        first name and last name of a user as a single value.
+        Test confirms that this method confirms appropriately.
+        """
+        # check for john user
+        self.john_user.first_name = "John"
+        self.john_user.last_name = "Doe"
+        self.john_user.save()
+
+        self.assertEqual(self.john_user.get_full_name(), "John Doe".title())
+
+        self.jane_user.first_name = "Jane"
+        self.jane_user.last_name = "Doe"
+        self.jane_user.save()
+
+        self.assertEqual(self.jane_user.get_full_name(), "Jane Doe".title())
 
 
     def test_user_account_create_with_valid_data(self):
