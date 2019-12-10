@@ -33,12 +33,16 @@
 <body style="background-color:rgb(255,255,255);">
     {% block hero %} {% endblock hero %}
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background-color:#090d14;">
-        <div class="container"><a class="navbar-brand" href="home.html" style="color:rgb(255,255,255);">Safe Nigeria</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Safe Nigeria</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1" style="width:0px;">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation" style="margin-left:0px;"><a class="nav-link active" href="home.html" style="color:rgb(255,255,255);">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="reports.html" style="color:rgb(255,255,255);">Report</a></li>
+                    <li class="nav-item" role="presentation" style="margin-left:0px;">
+                        <a class="nav-link active" href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Home</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="reports.html" style="color:rgb(255,255,255);">Report</a>
+                    </li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="news.html" style="color:rgb(255,255,255);">News</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="cities.html" style="color:rgb(255,255,255);">Cities</a></li>
                 </ul>
@@ -64,8 +68,8 @@
                         <div class="col-sm-6 col-md-3 item">
                             <h3>User</h3>
                             <ul>
-                                <li><a href="login.html">Log In</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
+                                <li><a href="{% url 'login' %}">Log In</a></li>
+                                <li><a href="{% url 'register' %}">Sign Up</a></li>
                                 <li><a href="settings.html">Account Settings</a></li>
                             </ul>
                         </div>
