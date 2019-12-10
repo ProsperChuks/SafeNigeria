@@ -64,6 +64,9 @@ DATABASES = {
         'NAME': os.environ.get('SAFE_NIGERIA_DB_NAME', ''),
         'USER': os.environ.get('SAFE_NIGERIA_DB_USER', ''),
         'PASSWORD': os.environ.get('SAFE_NIGERIA_DB_PASS', ''),
+    },
+    'test': {
+        'NAME': 'test_SN_db',
     }
 }
 
