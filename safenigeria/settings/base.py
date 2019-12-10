@@ -17,6 +17,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # project base library/app
+    'core',
+
+    # third party library/app
 ]
 
 MIDDLEWARE = [
@@ -62,7 +67,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -80,6 +84,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+# Custom User Model
+AUTH_USER_MODEL = 'core.CustomUser'
 
 
 # Internationalization
@@ -100,3 +108,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Setup directory were *collectstatic* command will save static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_resource/')
+
+# Setup directory were django will search for static files within app
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'),]
+
+
+
+# Media files (User's uploaded file content)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/#serving-files-uploaded-by-a-user-during-development
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded_resource/')
+
