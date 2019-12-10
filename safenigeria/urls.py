@@ -13,14 +13,17 @@ urlpatterns = [
     path('accounts/login/', auth_view.LoginView.as_view(), name='login'),
     path('accounts/logout/', auth_view.LogoutView.as_view(), name='logout'),
     path(
-            'accounts/registration/', 
-            UserCreationView.as_view(
-                    template_name='registration/register.html'), 
-            name='register'
+         'accounts/registration/', 
+         UserCreationView.as_view(
+                template_name='registration/register.html'), 
+         name='register'
         ),
 
     # project's library/app url hooks
     path('', include('core.urls')),
+
+    # third party library/app url hooks
+    path('select2/', include('django_select2.urls')),
 ]
 
 

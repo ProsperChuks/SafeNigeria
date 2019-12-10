@@ -22,7 +22,8 @@ INSTALLED_APPS = [
     'core',
 
     # third party library/app
-    'bootstrap4'
+    'bootstrap4',
+    'django_select2',
 ]
 
 MIDDLEWARE = [
