@@ -48,7 +48,7 @@ class UserManager( BaseUserManager ):
 			password=password 
 		)
 		user.staff = True
-		user.admin = True
+		user.superuser = True
 		user.save()
 		return user
 
@@ -63,9 +63,9 @@ class CustomUser(AbstractUser):
         blank=True, 
         null=True
     )
-	active = models.BooleanField(default=True)
+	is_active = models.BooleanField(default=True)
 	staff = models.BooleanField(default=False) 
-	admin = models.BooleanField(default=False)
+	superuser = models.BooleanField(default=False)
 	objects = UserManager( )
 
 	USERNAME_FIELD = 'username'
@@ -76,15 +76,13 @@ class CustomUser(AbstractUser):
 	
 	def get_full_name(self):
 		return f"{self.first_name} {self.last_name}".title()
-
-	def is_staff(self):
-		return self.staff
 	
-	def is_admin(self):
-		return self.admin
-
+	def is_staff(self):
+		return self.is_staff
+	
 	def is_superuser(self):
-		return self.admin
+		return self.superuser
+
 
 
 
