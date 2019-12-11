@@ -6,7 +6,7 @@
 
 - AbdulAzeez Olawale Shobajo, digitalpoolng@gmail.com, Business
 - Agbonze O. Jeremiah, agbonzeosazuwa@gmail.com, Backend
-- Chukwudi Prosper, prosperc40@gmail.com, Fullstack
+- Chukwudi Prosper, prosperc40@gmail.com, Frontend
 - Ipoola Peter, peteripoola@yahoo.com, UI/UX Design
 
 # Problem
@@ -19,7 +19,7 @@ This software is one, that allows people to record emergencies that happen aroun
 
 # Proposed Stack
 
-Javascript, Django and MySQL
+Javascript, Django, PostgreSQL and AWS
 
 # Benefit
 
