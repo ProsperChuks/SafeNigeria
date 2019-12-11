@@ -1,6 +1,7 @@
 # django imports
 from django import forms
 from django.contrib import admin
+from django.contrib.auth import get_user_model
 from django.forms.models import ModelChoiceField
 from django.contrib.auth.models import Permission, Group
 
