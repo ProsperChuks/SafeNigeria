@@ -10,6 +10,7 @@ from core.models import Incident, State
 
 # third party library imports
 from django_select2.forms import Select2Widget
+from django.core.exceptions import ValidationError
 
 
 class UserAdminFormCustomizer(forms.ModelForm):
@@ -49,3 +50,16 @@ class ReportForm(forms.ModelForm):
     class Meta:
         model = Incident
         fields = ('video', 'city', 'headline', 'description',)
+
+    def clean_video(self):
+        file = self.cleaned_data.get("video", False)
+
+        # retrieve the file format from the uploaded file
+        file_type = str(file)[len(str(file)) - 4:]
+        
+        # the format accepted as a video
+        valid_formats = ['.mp4', '.webm', '.ogg']
+
+        if not file_type in valid_formats :
+            raise ValidationError("Invalid file. Please upload a video")
+        return file
