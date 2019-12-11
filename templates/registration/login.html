@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block title %} Login {% endblock title %}
+{% block content %}
+
+<div class="login-dark py-2" style="background-color:#090d14;height:620px;">
+    <form method="post" style="max-width: 720px">
+        {% csrf_token %}
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration">
+            <i class="icon ion-ios-locked-outline"></i>
+        </div>
+        {% bootstrap_form form %}
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit" style="background-color:#007bff;">Log In</button>
+        </div>
+
+        <p class="text-white">Don't have an account yet ? 
+            <a href="{% url 'register' %}">create account</a>
+        </p>
+    </form>
+</div>
+
+{% endblock content %}

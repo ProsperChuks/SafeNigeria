@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 {% load static %}
+{% load bootstrap4 %}
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow">
@@ -27,56 +28,86 @@
 
 
     {% block head %} {% endblock head %}
-    <title>Safe Naija - {% block title %}  {% endblock title %}</title>
+    <title>Safe Nigeria - {% block title %} {% endblock title %}</title>
 </head>
 
 <body style="background-color:rgb(255,255,255);">
     {% block hero %} {% endblock hero %}
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background-color:#090d14;">
-        <div class="container"><a class="navbar-brand" href="home.html" style="color:rgb(255,255,255);">Safe Nigeria</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div
-                class="collapse navbar-collapse" id="navcol-1" style="width:0px;">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Safe Nigeria</a><button
+                class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1" style="width:0px;">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation" style="margin-left:0px;"><a class="nav-link active" href="home.html" style="color:rgb(255,255,255);">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="reports.html" style="color:rgb(255,255,255);">Report</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="news.html" style="color:rgb(255,255,255);">News</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="cities.html" style="color:rgb(255,255,255);">Cities</a></li>
+                    <a class="nav-link " href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Home</a>                    
+                    <a class="nav-link" href="{% url 'core:news' %}" style="color:rgb(255,255,255);">News</a>
+                    <a class="nav-link" href="{% url 'core:cities' %}" style="color:rgb(255,255,255);">Cities</a>
+                    {% if request.user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'core:report' %}" style="color:rgb(255,255,255);">Report</a>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
+                            href="#" style="color:rgb(255,255,255);">
+                            <i class="fa fa-user" style="font-size:20px;"></i>
+                            &nbsp; Hello {{ request.user.username }}&nbsp;
+                        </a>
+                        <div class="dropdown-menu" role="menu">
+                            
+                            <a class="dropdown-item" role="presentation" href="#">
+                                <i class="fa fa-gear" style="font-size:20px;"></i>
+                                &nbsp;Account Setting
+                            </a>
+
+                            <a class="dropdown-item" role="presentation" href="{% url 'logout' %}">
+                                <i class="fa fa-sign-out" style="font-size:20px;">
+                                </i>&nbsp;<span class="text-danger">Log out</span><br>
+                            </a>
+                        
+                        </div>
+                    </li>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="nav-link btn btn-sm text-white btn-primary">
+                            Create account</a>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
 
+
+
     {% block content %} {% endblock content %}
 
 
     <div class="footer-dark" style="background-color:rgb(9,13,20);">
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-3 item">
-                            <h3>Pages</h3>
-                            <ul>
-                                <li><a href="reports.html">Report a Crime</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="#">Cities</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 col-md-3 item">
-                            <h3>User</h3>
-                            <ul>
-                                <li><a href="login.html">Log In</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
-                                <li><a href="settings.html">Account Settings</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 item text">
-                            <h3>Safe Nigeria</h3>
-                            <p>Safe Nigeria allows people to record emergencies that happen around them and post them online, for people to stay safe off there or take measures.<br></p>
-                        </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li><a href="{% url 'core:report' %}">Report a Crime</a></li>
+                            <li><a href="{% url 'core:news' %}">News</a></li>
+                            <li><a href="{% url 'core:cities' %}">Cities</a></li>
+                        </ul>
                     </div>
-                    <p class="copyright">Safe Nigeria © 2019</p>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>User</h3>
+                        <ul>
+                            <li><a href="{% url 'login' %}">Log In</a></li>
+                            <li><a href="{% url 'register' %}">Sign Up</a></li>
+                            <li><a href="settings.html">Account Settings</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Safe Nigeria</h3>
+                        <p>Safe Nigeria allows people to record emergencies that happen around them and post them
+                            online, for people to stay safe off there or take measures.<br></p>
+                    </div>
                 </div>
-            </footer>
+                <p class="copyright">Safe Nigeria © 2019</p>
+            </div>
+        </footer>
     </div>
 
     <script src="{% static 'js/jquery-3.2.1.min.js' %}" type="text/javascript"></script>

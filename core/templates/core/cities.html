@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Cities {% endblock title %}
+
+
+{% block content %}
+<div style="background-color:#090d14;padding-top:75px;padding-bottom:50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h5 style="color:rgb(255,255,255);" class="text-center">
+                    Know what is happening in cities around you and stay safe
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+{% if states %}
+{% for state in states %}
+
+<div style="background-color:#090d14;padding-bottom:96px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 my-4">
+                <h4 style="color:rgb(27, 236, 255);">{{ state }} state</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for incident in state.incidents.all %}
+            <div class="col-md-6 col-lg-4 item text-center">
+                <div class="">
+                    <video controls width="250">
+                        <source src="{{ incident.video.url }}">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+                </div>
+                <h5 class="text-white">{{ incident.headline }}</h5>
+                <p class="text-bold">Occured at : {{ incident.city.name }} &emsp; -- &emsp;
+                    {{ incident.date_uploaded|date:'d M Y' }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endif %}
+{% endblock content %}

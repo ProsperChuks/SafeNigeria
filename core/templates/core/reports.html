@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Report {% endblock title %}
+{% block head %}
+    {{ form.media.css }}
+    <style>
+        span.select2.select2-container.select2-container--default {
+            width: 100% !important;
+        }
+    </style>
+{% endblock head %}
+{% block content %}
+    <div style="background-color:rgb(9,13,20);" class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <form method="post" enctype="multipart/form-data" class="text-white">
+                        <h2 class="text-center text-light">Report</h2>
+                        <p class="text-center text-sm" style="color:rgb(27, 236, 255);">inform others about the latest occurrence in your area</p>
+                        {% csrf_token %}
+                        {% if form.errors %}
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <p class="text-sm text-white p-2 bg-danger">{{ error }}</p>
+                                {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                        {% bootstrap_form form %}
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit" style="background-color:#007bff;">Report</button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+                <div class="col-md-6 container">
+                    <h2 class="text-center" style="color:rgb(27, 236, 255);">Recent Incidents</h2>
+                    {% if incidents %}
+                    <div class="row my-4">  
+                        {% for incident in incidents %}
+                            <div class="col-12 text-center mb-4">
+                                <div>
+                                    <video controls width="250">
+                                        <source src="{{ incident.video.url }}">
+                                        Sorry, your browser doesn't support embedded videos.
+                                    </video>
+                                </div>
+                                <h5 class="text-white">{{ incident.headline }}</h5>
+                                <p class="text-bold">Occured at : {{ incident.city.name }} &emsp; -- &emsp; {{ incident.date_uploaded|date:'d M Y' }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    {{ form.media.js }}
+{% endblock script %}

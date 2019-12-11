@@ -5,13 +5,13 @@
     <div>
         <div class="header-blue" style="background-repeat:no-repeat;background-size:cover;background-position:100%;">
             <h1 class="text-center text-white mb-3" style="font-family:Lato, sans-serif;font-weight:bold;font-size:30px;padding-top:189px;">
-                know about the incidents around you and be safe</h1>
-            <form method="get" class="input-group mb-3 form-group">
-                <input type="search" placeholder="Enter your city to search" autofocus autocomplete="off" class="align-self-center" style="width:351px; height:55px; font-size: 21px; border: none;"/>
-                <div class="input-group-append">
-                <button style="background: #ffffff; border: none;" class="input-group-text fa fa-search fa-2x"></button>
-                </div>
-            </form>
+                Create awareness about the latest happenings around you. 
+            </h1>
+            <h3 class="text-md mt-2 text-center text-white">together we go make naija safe</h3>
+            
+            <div class="my-4 text-center">
+                <a href="{% url 'register' %}" class="btn btn-lg btn-primary">Create your free account</a>
+            </div>
         </div>
     </div>
 {% endblock hero %}
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div style="background-color:#090d14;padding:40px;">
+    <div style="background-color:#090d14;padding:40px;" class=".d-sm-none .d-md-block .d-none .d-sm-block">
         <div class="container">
             <div class="row">
                 <div class="col-md-4"><i class="fa fa-angle-double-down d-block" style="color:rgb(62,140,228);font-size:76px;padding:0px;padding-left:134px;"></i>
@@ -52,18 +52,34 @@
                 <h2 class="text-center" style="color:rgb(255,255,255);">Become a Good Citizen</h2>
                 <p class="text-center" style="color:rgb(172,200,232);">Sign Up and share a post about an incident to create awareness. Be a Good Citizen</p>
             </div>
-            <div class="buttons"><a class="btn btn-primary" role="button" href="signup.html">sign up</a><a class="btn btn-light" role="button" href="login.html">log in</a></div>
+            <div class="buttons">
+                <a class="btn btn-primary" role="button" href="{% url 'register' %}">sign up</a>
+                <a class="btn btn-light" role="button" href="{% url 'login' %}">log in</a>
+            </div>
         </div>
     </div>
+    
+    
     <div class="testimonials-clean" style="background-color:rgb(49,52,55);">
         <div class="container">
             <div class="intro">
                 <h2 class="text-center" style="color:rgb(255,255,255);">Recent Incidents</h2>
             </div>
             <div class="row people">
-                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Wy8kokUarow" style="height:221px;width:361px;"></iframe></div>
-                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/EjXGkDH6_Jo" style="height:221px;width:361px;"></iframe></div>
-                <div class="col-md-6 col-lg-4 item"><iframe width="560" height="315" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/zTwmEy48wlo" style="height:221px;width:361px;"></iframe></div>
+                {% if recent_incidents %}
+                    {% for incident in recent_incidents %}
+                        <div class="col-md-6 col-lg-4 item text-center">
+                            <div>
+                                <video controls width="250">
+                                    <source src="{{ incident.video.url }}">
+                                    Sorry, your browser doesn't support embedded videos.
+                                </video>
+                            </div>
+                            <h5 class="text-white">{{ incident.headline }}</h5>
+                            <p class="text-bold">Occured at : {{ incident.city.name }} &emsp; -- &emsp; {{ incident.date_uploaded|date:'d M Y' }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>

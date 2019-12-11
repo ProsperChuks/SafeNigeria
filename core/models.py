@@ -48,7 +48,7 @@ class UserManager( BaseUserManager ):
 			password=password 
 		)
 		user.staff = True
-		user.admin = True
+		user.superuser = True
 		user.save()
 		return user
 
@@ -63,19 +63,26 @@ class CustomUser(AbstractUser):
         blank=True, 
         null=True
     )
-	active = models.BooleanField(default=True)
+	is_active = models.BooleanField(default=True)
 	staff = models.BooleanField(default=False) 
-	admin = models.BooleanField(default=False)
+	superuser = models.BooleanField(default=False)
 	objects = UserManager( )
 
 	USERNAME_FIELD = 'username'
 	REQUIRED_FIELDS = ['email',]
 
 	def __str__( self ):
-		return self.email
+		return self.get_full_name()
 	
 	def get_full_name(self):
-		return f"{self.first_name.title()} {self.last_name.title()}"
+		return f"{self.first_name} {self.last_name}".title()
+	
+	def is_staff(self):
+		return self.is_staff
+	
+	def is_superuser(self):
+		return self.superuser
+
 
 
 
@@ -122,8 +129,6 @@ CITIES = (
 
 
 
-
-
 class State(models.Model):
 	name = models.CharField(max_length=18, choices=CITIES)
 
@@ -142,9 +147,10 @@ class Incident(models.Model):
 		on_delete=models.CASCADE, 
 		related_name='incidents'
 	)
-	city = models.ManyToManyField(
+	city = models.ForeignKey(
 		State,
-		related_name='incidents'
+		related_name='incidents',
+		on_delete=models.CASCADE
 	)
 
 	class Meta:
