@@ -48,24 +48,21 @@
                     {% if request.user.is_authenticated %}
                     <a class="nav-link" href="{% url 'core:report' %}" style="color:rgb(255,255,255);">Report</a>
                     {% endif %}
-                    <a class="nav-link" href="news.html" style="color:rgb(255,255,255);">News</a>
+                    <a class="nav-link" href="{% url 'core:news' %}" style="color:rgb(255,255,255);">News</a>
                     <a class="nav-link" href="{% url 'core:cities' %}" style="color:rgb(255,255,255);">Cities</a>
                     <li class="dropdown">
-                        <a 
-                            class="dropdown-toggle nav-link dropdown-toggle" 
-                            data-toggle="dropdown" 
-                            aria-expanded="false" 
+                        <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
                             href="#" style="color:rgb(255,255,255);">
-                            
+
                             <i class="fa fa-user" style="font-size:20px;">
-                            </i>&nbsp; Hello User&nbsp;
+                            </i>&nbsp; Hello {{ request.user.username }}&nbsp;
                         </a>
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item" role="presentation" href="#">
                                 <i class="fa fa-gear" style="font-size:20px;"></i>
                                 &nbsp;Account Setting
                             </a>
-                                
+
                             <a class="dropdown-item" role="presentation" href="#">
                                 <i class="fa fa-sign-out" style="font-size:20px;">
                                 </i>&nbsp;Log Out<br>
@@ -77,8 +74,8 @@
         </div>
     </nav>
 
-    
-        
+
+
     {% block content %} {% endblock content %}
 
 
@@ -90,7 +87,7 @@
                         <h3>Pages</h3>
                         <ul>
                             <li><a href="{% url 'core:report' %}">Report a Crime</a></li>
-                            <li><a href="news.html">News</a></li>
+                            <li><a href="{% url 'core:news' %}">News</a></li>
                             <li><a href="{% url 'core:cities' %}">Cities</a></li>
                         </ul>
                     </div>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block title %} News {% endblock title %}
+
+{% block content %}
+<div style="background-color:#090d14;padding-top:75px;padding-bottom:50px;min-height: 600px;" class="container-fluid">
+    <div class="row">
+        {% for incident in news %}
+        <div class="col-md-6 col-lg-3 item text-center">
+            <div class="">
+                <video controls width="250">
+                    <source src="{{ incident.video.url }}">
+                    Sorry, your browser doesn't support embedded videos.
+                </video>
+            </div>
+            <h5 class="text-white">{{ incident.headline }}</h5>
+            <p class="text-bold">Occured at : {{ incident.city.name }} &emsp; -- &emsp;
+                {{ incident.date_uploaded|date:'d M Y' }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

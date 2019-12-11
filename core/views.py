@@ -23,6 +23,11 @@ class ReportPageView(FormView):
     context_object_name = 'form'
     success_url = '/'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['incidents'] = Incident.objects.order_by('-date_uploaded')[:2]
+        return context
+
     def form_valid(self, form):
         """
         when form is valid, then save the form
@@ -43,8 +48,8 @@ class CitiesView(ListView):
         return State.objects.filter(incidents__gte=1).distinct()
 
 
-
 class NewFeedView(ListView):
     model = Incident
     paginate_by = 30
     template_name = 'core/news.html'
+    context_object_name = 'news'

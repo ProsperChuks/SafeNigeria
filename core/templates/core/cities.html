@@ -18,7 +18,7 @@
 </div>
 {% if states %}
 {% for state in states %}
-<!-- {% if state.incidents %} -->
+
 <div style="background-color:#090d14;padding-bottom:96px;">
     <div class="container">
         <div class="row">
@@ -29,7 +29,7 @@
 
         <div class="row">
             {% for incident in state.incidents.all %}
-            <div class="col-4 text-center">
+            <div class="col-md-6 col-lg-4 item text-center">
                 <div class="">
                     <video controls width="250">
                         <source src="{{ incident.video.url }}">
@@ -44,12 +44,7 @@
         </div>
     </div>
 </div>
-<!-- {% endif %} -->
+
 {% endfor %}
 {% endif %}
 {% endblock content %}
-
-
-{% block script %}
-<script src="{% static 'js/card-caro.js' %}"></script>
-{% endblock script %}
