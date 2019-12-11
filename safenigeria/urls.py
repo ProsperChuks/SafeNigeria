@@ -9,7 +9,7 @@ from .baseviews import UserCreationView
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('safenigeria-admin-console/', admin.site.urls),
     path('accounts/login/', auth_view.LoginView.as_view(), name='login'),
     path('accounts/logout/', auth_view.LogoutView.as_view(), name='logout'),
     path('accounts/profile/', auth_view.LogoutView.as_view(), name='profile'),
