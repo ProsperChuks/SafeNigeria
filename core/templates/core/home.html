@@ -5,13 +5,13 @@
     <div>
         <div class="header-blue" style="background-repeat:no-repeat;background-size:cover;background-position:100%;">
             <h1 class="text-center text-white mb-3" style="font-family:Lato, sans-serif;font-weight:bold;font-size:30px;padding-top:189px;">
-                know about the incidents around you and be safe</h1>
-            <form method="get" class="input-group mb-3 form-group">
-                <input type="search" placeholder="Enter your city to search" autofocus autocomplete="off" class="align-self-center" style="width:351px; height:55px; font-size: 21px; border: none;"/>
-                <div class="input-group-append">
-                <button style="background: #ffffff; border: none;" class="input-group-text fa fa-search fa-2x"></button>
-                </div>
-            </form>
+                Create awareness about the latest happenings around you. 
+            </h1>
+            <h3 class="text-md mt-2 text-center text-white">together we go make naija safe</h3>
+            
+            <div class="my-4 text-center">
+                <a href="{% url 'register' %}" class="btn btn-lg btn-primary">Create your free account</a>
+            </div>
         </div>
     </div>
 {% endblock hero %}
@@ -58,6 +58,8 @@
             </div>
         </div>
     </div>
+    
+    
     <div class="testimonials-clean" style="background-color:rgb(49,52,55);">
         <div class="container">
             <div class="intro">
