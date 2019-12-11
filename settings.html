@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>safeNaija</title>
+    <title>Safe Nigeria - Account Settings</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -27,9 +27,96 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background-color:#090d14;">
+        <div class="container"><a class="navbar-brand" href="home.html" style="color:rgb(255,255,255);">Safe Nigeria</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1" style="width:0px;">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation" style="margin-left:0px;"><a class="nav-link active" href="home.html" style="color:rgb(255,255,255);">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="reports.html" style="color:rgb(255,255,255);">Report</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="news.html" style="color:rgb(255,255,255);">News</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="cities.html" style="color:rgb(255,255,255);">Cities</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:rgb(255,255,255);"><i class="fa fa-user" style="font-size:20px;"></i>&nbsp; Hello User&nbsp;</a>
+                        <div class="dropdown-menu"
+                            role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fa fa-gear" style="font-size:20px;"></i>&nbsp;Account Setting</a><a class="dropdown-item" role="presentation" href="#"><i class="fa fa-sign-out" style="font-size:20px;"></i>&nbsp;Log Out<br></a></div>
+                    </li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div style="background-color:#090d14;padding-top:65px;padding-bottom:65px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="width:362px;max-width:287px;"><i class="fa fa-user" style="color:rgb(255,255,255);font-size:170px;padding-left:23px;"></i>
+                    <h2 class="text-capitalize" style="color:rgb(255,255,255);padding-left:12px;">Hello, User</h2>
+                </div>
+                <div class="col-md-6 d-none d-sm-block xs-block" style="max-width:241px;line-height:45px;">
+                    <p>First Name :</p>
+                    <p>Last Name :</p>
+                    <p>Username :</p>
+                    <p>Email :</p>
+                    <p>Password :</p>
+                </div>
+                <form class="col" style="line-height:45px;">
+                    <div><input class="form-control-sm" type="text" name="firstname" value="Current First Name" readonly="" id="id_first_name">
+                        <a href="#" id="edit_first_name" style="margin-left:14px;" onclick="edit_firstname()">
+                            <i class="fa fa-edit" style="font-size:25px;"></i>
+                        </a>
+                    </div>
+                    <div><input class="form-control-sm" type="text" name="lastname" value="Current Last Name" readonly="" id="id_last_name">
+                        <a href="#" id="edit_last_name" style="margin-left:14px;" onclick="edit_lastname()">
+                            <i class="fa fa-edit" style="font-size:25px;"></i>
+                        </a>
+                    </div>
+                    <p>User</p>
+                    <div><input class="form-control-sm" type="text" name="email" value="user@gmail.com" readonly="" inputmode="email" id="id_email">
+                        <a href="#" id="edit_email" style="margin-left:14px;" onclick="edit_email()">
+                            <i class="fa fa-edit" style="font-size:25px;"></i>
+                        </a>
+                    </div>
+                    <div><input class="form-control-sm" type="password" name="password" value="currentpassword" readonly="" id="id_password">
+                        <a href="#" id="edit_password" style="margin-left:14px;" onclick="edit_password()">
+                            <i class="fa fa-edit" style="font-size:25px;"></i>
+                        </a>
+                    </div>
+
+                    <button id="submit" hidden="" class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer-dark" style="background-color:rgb(9,13,20);">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li><a href="reports.html">Report a Crime</a></li>
+                            <li><a href="news.html">News</a></li>
+                            <li><a href="#">Cities</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>User</h3>
+                        <ul>
+                            <li><a href="login.html">Log In</a></li>
+                            <li><a href="signup.html">Sign Up</a></li>
+                            <li><a href="settings.html">Account Settings</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Safe Nigeria</h3>
+                        <p>Safe Nigeria allows people to record emergencies that happen around them and post them online, for people to stay safe off there or take measures.<br></p>
+                    </div>
+                </div>
+                <p class="copyright">Safe Nigeria © 2019</p>
+            </div>
+        </footer>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/card-caro.js"></script>
+    <script src="assets/js/edit.js"></script>
 </body>
 
 </html>
