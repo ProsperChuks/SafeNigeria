@@ -1,0 +1,1 @@
+web: gunicorn safenigeria.wsgi --log-file -
