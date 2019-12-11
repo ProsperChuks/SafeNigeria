@@ -5,7 +5,7 @@ SECRET_KEY = os.environ.get('SAFE_NIGERIA_SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['safenigeria.herokuapp.com',]
 
 
 MIDDLEWARE = [
