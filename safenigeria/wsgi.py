@@ -8,9 +8,13 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
 import os
-
+from django.conf import settings
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'safenigeria.settings')
+if settings.DEBUG:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'safenigeria.settings.development')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'safenigeria.settings.production')
+
 
 application = get_wsgi_application()
