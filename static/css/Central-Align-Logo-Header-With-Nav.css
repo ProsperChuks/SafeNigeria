@@ -52,7 +52,7 @@ p {
   min-height:600px;
   display:block;
   position:relative;
-  background-image:url('images.png');
+  background-image:url('../image/image.png');
   background-size:cover;
   background-position:center center;
   text-align:center;
