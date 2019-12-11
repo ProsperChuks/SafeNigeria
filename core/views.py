@@ -1,9 +1,10 @@
+from django.db import models
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView, FormView, ListView
 
-from core.models import Incident
+from core.models import Incident, State
 from core import forms
 
 
@@ -30,6 +31,17 @@ class ReportPageView(FormView):
         incident.user = self.request.user
         incident.save()
         return super().form_valid(form)
+
+
+class CitiesView(ListView):
+    model = State
+    paginate_by = 10
+    context_object_name = "states"
+    template_name = "core/cities.html"
+
+    def get_queryset(self):
+        return State.objects.filter(incidents__gte=1).distinct()
+
 
 
 class NewFeedView(ListView):
