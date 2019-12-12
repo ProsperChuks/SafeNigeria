@@ -3,12 +3,12 @@
 {% block title %}Page Not Found{% endblock title %}
 
 {% block content %}
-<div style="background-color:#090d14;padding-top:46px;padding-bottom:36px;">
+<div style="background-color:#090d14;padding-top:46px;padding-bottom:36px;height:">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="height: 365px; text-align: center;">
                 <h1 style="font-size:40px;font-weight:bold" class="text-white mb-2">No resource found</h1>
-                <h3 class="text-capitalize">
+                <h3 class="text-capitalize" style="color: #afaeae">
                     Oops!... resource requested not found
                     &emsp; &emsp; 
                     <a href="{% url 'core:index' %}" class="text-primary text-md">
