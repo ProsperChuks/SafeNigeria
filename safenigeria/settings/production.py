@@ -19,7 +19,7 @@ MIDDLEWARE = [
 ]
 
 
-# setting s3 configurations
+# S3 base configurations
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESSKEY')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRETKEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
@@ -27,12 +27,16 @@ AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
-AWS_LOCATION = 'static'
-STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}"
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-# storage backend
+# AWS static files configuration
+
+# AWS_LOCATION = 'static'
+# STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}"
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+# S3 media files upload configurations backend
 DEFAULT_FILE_STORAGE = 'safenigeria.settings.storage_backends.MediaStorage'
 
 
