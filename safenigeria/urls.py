@@ -5,14 +5,15 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_view
 
 # project's library/app imports
-from .baseviews import UserCreationView
+from .baseviews import UserCreationView, UserProfileView, change_password
 
 
 urlpatterns = [
     path('safenigeria-admin-console/', admin.site.urls),
     path('accounts/login/', auth_view.LoginView.as_view(), name='login'),
     path('accounts/logout/', auth_view.LogoutView.as_view(), name='logout'),
-    path('accounts/profile/', auth_view.LogoutView.as_view(), name='profile'),
+    path('accounts/change-password/', change_password, name='update_password'),
+    path('accounts/settings/<int:pk>/', UserProfileView.as_view(), name='profile'),
     path(
          'accounts/registration/', 
          UserCreationView.as_view(
