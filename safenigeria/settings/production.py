@@ -33,7 +33,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # storage backend
-DEFAULT_FILE_STORAGE = 'mysite.storage_backends.MediaStorage'
+DEFAULT_FILE_STORAGE = 'safenigeria.settings.storage_backends.MediaStorage'
 
 
 # Configuration for static files storage using whitenoise
