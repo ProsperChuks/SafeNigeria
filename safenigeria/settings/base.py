@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     # third party library/app
     'bootstrap4',
     'django_select2',
+    
+    'storages',
 ]
 
 ROOT_URLCONF = 'safenigeria.urls'
