@@ -32,15 +32,7 @@ Javascript, Django, PostgreSQL and AWS
     └── media_root/uploaded_videos
     └── safenigeria
     └── static
-        └── css
-        └── image
-        └── js
-        └── test_dir
     └── templates
-        └── registration
-            └── login.html
-            └── register.html
-        └── base.html
     └── .gitignore
     └── README.md
     └── manage.py
