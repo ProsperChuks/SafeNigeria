@@ -28,4 +28,11 @@ Javascript, Django, PostgreSQL and AWS
 - Democratizing NPF
 
 # Top-level directory layout
-    └── README.md
+└── core
+└── media_root/uploaded_videos
+└── safenigeria
+└── static
+└── templates
+└── .gitignore
+└── README.md
+└── manage.py
