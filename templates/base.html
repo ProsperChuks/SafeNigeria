@@ -35,9 +35,11 @@
     {% block hero %} {% endblock hero %}
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background-color:#090d14;">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Safe Nigeria</a><button
+            <a class="navbar-brand" href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Safe Nigeria</a>
+            <button
                 class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle
-                    navigation</span><span class="navbar-toggler-icon"></span></button>
+                    navigation</span><span class="fa fa-bars text-white"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navcol-1" style="width:0px;">
                 <ul class="nav navbar-nav ml-auto">
                     <a class="nav-link " href="{% url 'core:home' %}" style="color:rgb(255,255,255);">Home</a>                    
@@ -53,7 +55,7 @@
                         </a>
                         <div class="dropdown-menu" role="menu">
                             
-                            <a class="dropdown-item" role="presentation" href="#">
+                            <a class="dropdown-item" role="presentation" href="{% url 'profile' request.user.id %}">
                                 <i class="fa fa-gear" style="font-size:20px;"></i>
                                 &nbsp;Account Setting
                             </a>

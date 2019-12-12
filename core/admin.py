@@ -15,7 +15,7 @@ class CustomUserAdmin(admin.ModelAdmin):
                 'username', 'email', 'first_name', 'last_name', 'avatar',
             ]
         }),
-        ("User validity", {'fields': ['active', 'staff',]}),
+        ("User validity", {'fields': ['is_active', 'staff',]}),
 
         ###
         ### the below will remain commented out until permission has been 

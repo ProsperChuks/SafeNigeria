@@ -1,6 +1,6 @@
 from django.contrib import messages
+from django.shortcuts import redirect
 from django.views.generic import TemplateView
-from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth import authenticate, login
 from django.utils.decorators import method_decorator
@@ -13,19 +13,23 @@ from django.views.generic.edit import FormView, UpdateView
 from safenigeria.baseform import SignUpForm
 
 
+
 def change_password(request):
     """
     handles password changing functionality.
     """
-    form = PasswordChangeForm(request.user, request.POST)
-    if form.is_valid():
-        user = form.save()
-        update_session_auth_hash(request, user)  # Important!
-        messages.success(request, 'Your password was successfully updated!')
-        return redirect('change_password')
-    else:
-        messages.error(request, 'Please correct the error below.')
-    return redirect('profile')
+    if request.method == "POST":
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.user
+            update_session_auth_hash(request, user)
+
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('/')
+        else:
+            messages.error(request, 'invalid credentials, enter correct details')
+    return request.user.get_absolute_url()
 
 
 
@@ -56,7 +60,7 @@ class UserCreationView(FormView):
 
 
 @method_decorator(login_required, name='dispatch')
-class ProfileView(UpdateView):
+class UserProfileView(UpdateView):
     """
     displays a user profile page
     """
@@ -66,11 +70,14 @@ class ProfileView(UpdateView):
     fields = ('email', 'first_name', 'last_name')
 
 
+    def get_success_url(self):
+        return self.request.user.get_absolute_url()
+
     def get_context_data(self, **kwargs):
         """
         including important features to response object
         rendering profile page
         """
         context = super().get_context_data(**kwargs)
-        context['password_form'] = PasswordChangeForm()
+        context['password_form'] = PasswordChangeForm(user=self.request.user)
         return context

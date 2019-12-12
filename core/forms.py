@@ -49,7 +49,7 @@ class ReportForm(forms.ModelForm):
                 queryset=State.objects.all(), widget=Select2Widget)
     class Meta:
         model = Incident
-        fields = ('video', 'city', 'headline', 'description',)
+        fields = ('video', 'headline', 'city', 'location', 'description',)
 
     def clean_video(self):
         file = self.cleaned_data.get("video", False)

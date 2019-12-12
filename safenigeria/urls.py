@@ -1,18 +1,20 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404, handler500
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_view
 
 # project's library/app imports
-from .baseviews import UserCreationView
+from .baseviews import UserCreationView, UserProfileView, change_password
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('safenigeria-admin-console/', admin.site.urls),
     path('accounts/login/', auth_view.LoginView.as_view(), name='login'),
     path('accounts/logout/', auth_view.LogoutView.as_view(), name='logout'),
-    path('accounts/profile/', auth_view.LogoutView.as_view(), name='profile'),
+    path('accounts/change-password/', change_password, name='update_password'),
+    path('accounts/settings/<int:pk>/', UserProfileView.as_view(), name='profile'),
     path(
          'accounts/registration/', 
          UserCreationView.as_view(
@@ -27,6 +29,14 @@ urlpatterns = [
     path('select2/', include('django_select2.urls')),
 ]
 
+
+#
+###
+#   Custom 404 and 500 error page handler
+###
+#
+handler404 = 'core.views.error_404'
+handler500 = 'core.views.error_500'
 
 
 
