@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Page Not Found{% endblock title %}
+
+{% block content %}
+<div style="background-color:#090d14;padding-top:46px;padding-bottom:36px;height:">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="height: 370px; text-align: center;">
+                <h1 style="font-size:40px;font-weight:bold" class="text-white mb-2">No resource found</h1>
+                <h5 style="color: #afaeae; padding-top: 22px;">
+                    Oops!... resource requested not found
+                    &emsp; &emsp; 
+                    <a href="{% url 'core:index' %}" class="text-primary text-md">
+                        go to homepage</a>
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

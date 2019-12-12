@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from django.urls import reverse
 from django.contrib.auth.models import BaseUserManager, AbstractUser
 
 
@@ -73,7 +73,10 @@ class CustomUser(AbstractUser):
 
 	def __str__( self ):
 		return self.get_full_name()
-	
+
+	def get_absolute_url(self):
+		return reverse('profile', kwargs={'pk': self.pk})
+
 	def get_full_name(self):
 		return f"{self.first_name} {self.last_name}".title()
 	
@@ -142,8 +145,9 @@ class Incident(models.Model):
 	video = models.FileField(upload_to='uploaded_videos')
 	headline = models.CharField(max_length=225, blank=False, null=False)
 	date_uploaded = models.DateTimeField(auto_now_add=True)
+	location = models.CharField(max_length=200, blank=False, null=False)
 	user = models.ForeignKey(
-		get_user_model(), 
+		'CustomUser', 
 		on_delete=models.CASCADE, 
 		related_name='incidents'
 	)

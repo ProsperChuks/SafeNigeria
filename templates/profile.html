@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block title %}Account Settings{% endblock title %}
+
+{% block content %}
+<div style="background-color:#090d14;padding-top:65px;padding-bottom:65px;">
+    {% if messages %}
+    <div class="text-center px-4">
+        <div class="alert text-center alert-warning alert-dismissible fade show " role="alert">
+            {% for message in messages %}
+            <span{% if message.tags %} class="text-{{ message.tags }}"{% endif %}>{{ message }}</span>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    {% endif %}
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-center mb-4" style="width: 300px;">
+                    <i class="fa fa-user" style="color:rgb(255,255,255);font-size:170px;padding-left:23px;"></i>
+                    <h2 class="text-capitalize" style="color:rgb(255,255,255);padding-left:12px;">
+                        {{ request.user.get_full_name }}
+                    </h2>
+                </div>
+                <div>
+                    <p>
+                        <span class="font-weight-bold" style="color: #7ba9ff">First Name :</span>
+                        {% if request.user.first_name %}
+                        &emsp; {{ request.user.first_name }}
+                        {% else %}
+                        <small>not provided</small>
+                        {% endif %}
+                    </p>
+
+                    <p>
+                        <span class="font-weight-bold" style="color: #7ba9ff">Last Name :</span>
+                        {% if request.user.last_name %}
+                        &emsp; {{ request.user.last_name }}
+                        {% else %}
+                        <small>not provided</small>
+                        {% endif %}
+                    </p>
+
+                    <p>
+                        <span class="font-weight-bold" style="color: #7ba9ff">Email :</span>
+                        {% if request.user.email %}
+                        &emsp; {{ request.user.email }}
+                        {% else %}
+                        <small>not provided</small>
+                        {% endif %}
+                    </p>
+                </div>
+
+                <!-- Large modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    change password
+                </button>
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="container p-4">
+                                <h4> Password Change form</h4>
+                                <form action="{% url 'update_password' %}" method="POST" class="my-3">
+                                    {% csrf_token %}
+                                    {% bootstrap_form password_form %}
+                                    <button id="submit" class="btn btn-primary" type="submit">
+                                        Change password
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form method="POST" class="col-lg-4 col-sm-12 mt-4" style="line-height:45px; color: #fff;">
+                <h4>Edit profile</h4>
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <button id="submit" class="btn btn-primary" type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock script %}
