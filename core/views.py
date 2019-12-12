@@ -53,3 +53,13 @@ class NewFeedView(ListView):
     paginate_by = 30
     template_name = 'core/news.html'
     context_object_name = 'news'
+
+
+
+def error_404(request, exception):
+    context = {}
+    return render(request,'core/404.html', context)
+
+def error_500(request):
+    context = {}
+    return render(request,'core/500.html', context)
